@@ -22,7 +22,7 @@
 
 ## Установка и запуск
 
-1. Клонируйте репозиторий:
+Клонируйте репозиторий:
 
 1) git clone <https://github.com/volodymyr-pichkov/calculator.git>
 2) cd <calculator>
