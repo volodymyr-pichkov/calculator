@@ -32,11 +32,26 @@ export default function Calculator() {
       try {
         const res = evaluate(input);
         setResult(res);
+        setInput(String(res));
         setHistory([`${input} = ${res}`, ...history]);
       } catch {
         setResult("Error");
       }
     } else {
+      if (result !== null && !operators.includes(value)) {
+        if (/\d|\./.test(value)) {
+          setInput(value);
+          setResult(null);
+          return;
+        }
+      }
+
+      if (result !== null && operators.includes(value)) {
+        setInput(String(result) + value);
+        setResult(null);
+        return;
+      }
+
       setInput((prev) => {
         if (operators.includes(value)) {
           if (prev === "" && value !== "-") return prev;
